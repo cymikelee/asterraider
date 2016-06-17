@@ -1,0 +1,45 @@
+-Number of Types:
+1
+
+-Type Name:
+AST-160 "SuperGull" Asteroid Breaker
+-Sprite ID:
+0
+-Default Shot Sprite ID:
+8
+-Default Shot Sound ID:
+3
+-Shield LoopSound ID:
+1
+-Engine LoopSound ID:
+0
+-Default Acceleration:
+0.1
+-Default Turn Delay:
+2
+-Default Shot Power:
+1
+-Exhaust Speed Fraction:
+0.3333333333333333
+-Exhaust Particle Production Delay:
+3
+-Exhaust Particle Life:
+25
+-Exhaust Particle Size:
+2
+-Exhaust Particle Color (r,g,b):
+0
+255
+255
+-Number of Exhaust Ports:
+2
+-Exhaust Port Offset:
+4
+-Shield Color A (r,g,b):
+0
+255
+255
+-Shield Color B (r,g,b):
+0
+0
+255
