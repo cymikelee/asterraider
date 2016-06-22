@@ -8,10 +8,11 @@ public class GameFrame extends Frame implements WindowListener {
 	// Fields
 	public static final int DEFAULT_WIDTH = 320;
 	public static final int DEFAULT_HEIGHT = 240;
+	public static final String DEFAULT_TITLE = "Untitled GameFrame";
 
 	// Constructors
 	public GameFrame() {
-		this("Untitled GameFrame",DEFAULT_WIDTH,DEFAULT_HEIGHT);
+		this(DEFAULT_TITLE,DEFAULT_WIDTH,DEFAULT_HEIGHT);
 	}
 
 	public GameFrame(String title) {
@@ -19,7 +20,7 @@ public class GameFrame extends Frame implements WindowListener {
 	}
 
 	public GameFrame(int width, int height) {
-		this("Untitled GameFrame",width,height);
+		this(DEFAULT_TITLE,width,height);
 	}
 
 	public GameFrame(String title, int width, int height) {

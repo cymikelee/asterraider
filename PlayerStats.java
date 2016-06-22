@@ -67,7 +67,9 @@ public class PlayerStats {
 			g.drawString(str,xMid-fm.stringWidth(str)/2,yMid-fm.getHeight()/2+26);
 		} else {
 			str = "Get Ready for Level "+level+"...";
-			g.drawString(str,xMid-fm.stringWidth(str)/2,yMid-fm.getHeight()/2);
+			g.drawString(str,xMid-fm.stringWidth(str)/2,yMid-fm.getHeight()/2-9);
+			str = "(Press F1 during game for help)";
+			g.drawString(str,xMid-fm.stringWidth(str)/2,yMid-fm.getHeight()/2+9);
 		}
 	}
 

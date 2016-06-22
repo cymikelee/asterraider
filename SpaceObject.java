@@ -4,7 +4,7 @@
 import java.awt.Graphics;
 import java.awt.image.ImageObserver;
 
-public abstract class SpaceObject {
+public class SpaceObject {
 	// Fields
 	protected double x;
 	protected double y;
@@ -82,7 +82,11 @@ public abstract class SpaceObject {
 		move(xVel,yVel);
 	}
 
-	public abstract void drawMe(Graphics g, ImageObserver observer);
+	public void drawMe(Graphics g, ImageObserver observer) {}
+
+	public double distanceTo(SpaceObject so) {
+		return Math.sqrt(Math.pow(x-so.getX(),2)+Math.pow(y-so.getY(),2));
+	}
 
 }
 
