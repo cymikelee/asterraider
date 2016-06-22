@@ -1,4 +1,5 @@
 // HighScoreManager class
+// for AsterRaider (b/c of custom modifications)
 // by Mike Lee
 
 import java.awt.*;
@@ -14,7 +15,8 @@ public class HighScoreManager {
 	private int listLength;
 	public int newHighScore;
 	private int highIndex;
-	private GameFrame highScoreWindow;
+	public HighScoreWindow highScoreWindow;
+	private AsterRaider ar;
 
 	// Constructor
 	public HighScoreManager(File hsfile, int length) {
@@ -53,6 +55,12 @@ public class HighScoreManager {
 	}
 
 	// Methods
+	public void initialize(AsterRaider a) {
+		ar = a;
+		highScoreWindow = new HighScoreWindow(windowName,HS_WIDTH,HS_HEIGHT,ar);
+		highScoreWindow.setIconImage(ar.rs.titleAt(0));
+	}
+
 	public int highestScore() {
 		return highScoreList[0].getScore();
 	}
@@ -88,12 +96,7 @@ public class HighScoreManager {
 
 	public void showWindow(Dimension screenSize) {
 		// Create high score window
-		highScoreWindow = new GameFrame(windowName,HS_WIDTH,HS_HEIGHT);
-		highScoreWindow.addNotify();
 		highScoreWindow.setLocation(screenSize.width/2-HS_WIDTH/2,screenSize.height/2-HS_HEIGHT/2);
-		highScoreWindow.setResizable(false);
-		highScoreWindow.setForeground(Color.white);
-		highScoreWindow.setBackground(Color.black);
 		GridBagLayout gridBag = new GridBagLayout();
 		GridBagConstraints gbc = new GridBagConstraints();
 		highScoreWindow.setLayout(gridBag);
@@ -187,11 +190,6 @@ public class HighScoreManager {
 			highScoreWindow.add(lbl);
 		}
 		highScoreWindow.show();
-	}
-
-	public void closeWindow() {
-		highScoreWindow.removeNotify();
-		highScoreWindow.dispose();
 	}
 	
 }

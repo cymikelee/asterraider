@@ -1,5 +1,5 @@
 -Number of Types:
-1
+2
 
 -Type Name:
 AST-160 "SuperGull" Asteroid Breaker
@@ -19,8 +19,12 @@ AST-160 "SuperGull" Asteroid Breaker
 2
 -Default Shot Power:
 1
--Exhaust Speed Fraction:
-0.3333333333333333
+-Shot Particle Color (r,g,b):
+255
+0
+0
+-1 / Exhaust Speed Fraction:
+3
 -Exhaust Particle Production Delay:
 3
 -Exhaust Particle Life:
@@ -35,6 +39,8 @@ AST-160 "SuperGull" Asteroid Breaker
 2
 -Exhaust Port Offset:
 4
+-Shield Radius
+21
 -Shield Color A (r,g,b):
 0
 255
@@ -43,3 +49,52 @@ AST-160 "SuperGull" Asteroid Breaker
 0
 0
 255
+
+-Type Name:
+AAG-55 Anti-Asteroid Gunboat
+-Sprite ID:
+1
+-Default Shot Sprite ID:
+9
+-Default Shot Sound ID:
+5
+-Shield LoopSound ID:
+1
+-Engine LoopSound ID:
+0
+-Default Acceleration:
+0.06
+-Default Turn Delay:
+2
+-Default Shot Power:
+2
+-Shot Particle Color (r,g,b):
+0
+255
+255
+-Exhaust Speed Fraction ^ -1:
+3
+-Exhaust Particle Production Delay:
+3
+-Exhaust Particle Life:
+25
+-Exhaust Particle Size:
+3
+-Exhaust Particle Color (r,g,b):
+255
+191
+0
+-Number of Exhaust Ports:
+1
+-Exhaust Port Offset:
+0
+-Shield Radius
+22
+-Shield Color A (r,g,b):
+255
+0
+0
+-Shield Color B (r,g,b):
+127
+0
+0

@@ -2,28 +2,28 @@
 25
 
 0
-ship.gif
+fighter.gif
 6
 6
-3
+5
 
 1
-shipa.gif
+gunboat.gif
 6
 6
-2
-
-2
-shipb.gif
-6
-6
-2
+4
 
 8
 shot.gif
 6
 6
 1
+
+9
+blaster.gif
+6
+6
+0
 
 16
 smallrock.gif
@@ -41,7 +41,7 @@ mediumrock.gif
 bigrock.gif
 1
 18
-12
+10
 
 24
 boom.gif

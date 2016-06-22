@@ -13,6 +13,7 @@ public class Ship extends SpaceSpriteObject {
 	private int theta;
 	private int thetaIncr;
 	private int shotPower;
+	public int shRad;
 
 	// Fields: Flags
 	private boolean alive;
@@ -38,6 +39,7 @@ public class Ship extends SpaceSpriteObject {
 		rotStart = 0;
 		accelRate = type.defaultAccel;
 		shotPower = type.defaultShotPower;
+		shRad = type.shieldRadius;
 		thrustersOn = false;
 		shieldsOn = true;
 		alive = true;
@@ -79,12 +81,15 @@ public class Ship extends SpaceSpriteObject {
 			double exVelX = xVel - type.exSpeedFrac*xAccel;
 			double exVelY = yVel - type.exSpeedFrac*yAccel;
 			if(type.exhaustPorts == 1 && AsterRaider.useParticleEffects)
-				exhaust.addParticle(x-(xrad-4)*costh,y-(yrad-4)*sinth,type.exPortOffset,exVelX,exVelY,type.exPartLife,type.exPartColor,true);
+				exhaust.addParticle(x-(xrad-8)*costh,y-(yrad-8)*sinth,type.exPartSize,exVelX,exVelY,type.exPartLife,type.exPartColor,true);
 			else if(type.exhaustPorts == 2 && AsterRaider.useParticleEffects) {
 				exhaust.addParticle(x-(xrad-8)*costh-type.exPortOffset*sinth,y-(yrad-8)*sinth+type.exPortOffset*costh,type.exPartSize,exVelX,exVelY,type.exPartLife,type.exPartColor,true);
 				exhaust.addParticle(x-(xrad-8)*costh+type.exPortOffset*sinth,y-(yrad-8)*sinth-type.exPortOffset*costh,type.exPartSize,exVelX,exVelY,type.exPartLife,type.exPartColor,true);
-			}
-			else if (type.exhaustPorts != 0)
+			} else if(type.exhaustPorts == 3 && AsterRaider.useParticleEffects) {
+				exhaust.addParticle(x-(xrad-8)*costh,y-(yrad-8)*sinth,type.exPartSize,exVelX,exVelY,type.exPartLife,type.exPartColor,true);
+				exhaust.addParticle(x-(xrad-8)*costh-type.exPortOffset*sinth,y-(yrad-8)*sinth+type.exPortOffset*costh,type.exPartSize,exVelX,exVelY,type.exPartLife,type.exPartColor,true);
+				exhaust.addParticle(x-(xrad-8)*costh+type.exPortOffset*sinth,y-(yrad-8)*sinth-type.exPortOffset*costh,type.exPartSize,exVelX,exVelY,type.exPartLife,type.exPartColor,true);
+			} else if (type.exhaustPorts != 0)
 				AsterRaider.errManager.handleGameError("Ship has invalid number of exhaust ports (must be between 0 and 2)");
 		}
 	}
@@ -140,15 +145,15 @@ public class Ship extends SpaceSpriteObject {
 			g.setColor(type.shieldColorA);
 		else
 			g.setColor(type.shieldColorB);
-		g.drawOval(getIntX()-xrad,getIntY()-yrad,xrad*2,yrad*2);
-		if(getX() > 0 && getX()-xrad < 0)
-			g.drawOval(getIntX()-xrad+AsterRaider.GAME_WIDTH,getIntY()-yrad,xrad*2,yrad*2);
-		else if(getX() < AsterRaider.GAME_WIDTH && getX()+xrad > AsterRaider.GAME_WIDTH)
-			g.drawOval(getIntX()-xrad-AsterRaider.GAME_WIDTH,getIntY()-yrad,xrad*2,yrad*2);
-		else if(getY() > 0 && getY()-yrad < 0)
-			g.drawOval(getIntX()-xrad,getIntY()-yrad+AsterRaider.GAME_HEIGHT,xrad*2,yrad*2);
-		else if(getY() < AsterRaider.GAME_HEIGHT && getY()+xrad > AsterRaider.GAME_HEIGHT)
-			g.drawOval(getIntX()-xrad,getIntY()-yrad-AsterRaider.GAME_HEIGHT,xrad*2,yrad*2);
+		g.drawOval(getIntX()-shRad,getIntY()-shRad,shRad*2,shRad*2);
+		if(getX() > 0 && getX()-shRad < 0)
+			g.drawOval(getIntX()-shRad+AsterRaider.GAME_WIDTH,getIntY()-shRad,shRad*2,shRad*2);
+		else if(getX() < AsterRaider.GAME_WIDTH && getX()+shRad > AsterRaider.GAME_WIDTH)
+			g.drawOval(getIntX()-shRad-AsterRaider.GAME_WIDTH,getIntY()-shRad,shRad*2,shRad*2);
+		else if(getY() > 0 && getY()-shRad < 0)
+			g.drawOval(getIntX()-shRad,getIntY()-shRad+AsterRaider.GAME_HEIGHT,shRad*2,shRad*2);
+		else if(getY() < AsterRaider.GAME_HEIGHT && getY()+shRad > AsterRaider.GAME_HEIGHT)
+			g.drawOval(getIntX()-shRad,getIntY()-shRad-AsterRaider.GAME_HEIGHT,shRad*2,shRad*2);
 		g.setColor(c);
 	}
 

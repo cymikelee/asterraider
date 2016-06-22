@@ -1,10 +1,11 @@
-5
+6
 3
 boom.au
 bigboom.au
 piff.au
 shot.au
 click.au
+blaster.au
 engine.au
 shield.au
 asterstorm.au
